@@ -1,12 +1,20 @@
-#!/usr/bin/python3
-import sys
+#!/usr/bin/env python3
 
-args = sys.argv[1:]
-n_args = len(args)
+import argparse
 
-if n_args == 0:
-    print("{} arguments.".format(n_args))
-else:
-    print("{} argument{}:".format(n_args, "" if n_args == 1 else "s"))
-    for i, arg in enumerate(args):
-        print("{}: {}".format(i+1, arg))
+def main():
+    parser = argparse.ArgumentParser(description="Count and list command-line arguments.")
+    parser.add_argument("args", nargs="*", help="The list of command-line arguments")
+    args = parser.parse_args()
+    count = len(args.args)
+    if count == 0:
+        print("0 arguments.")
+    elif count == 1:
+        print("1 argument:")
+    else:
+        print(f"{count} arguments:")
+    for i, arg in enumerate(args.args):
+        print(f"{i + 1}: {arg}")
+
+if __name__ == "__main__":
+    main()
