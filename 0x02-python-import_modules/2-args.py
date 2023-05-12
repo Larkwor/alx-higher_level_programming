@@ -1,20 +1,8 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
+import sys
 
-import argparse
-
-def main():
-    parser = argparse.ArgumentParser(description="Count and list command-line arguments.")
-    parser.add_argument("args", nargs="*", help="The list of command-line arguments")
-    args = parser.parse_args()
-    count = len(args.args)
-    if count == 0:
-        print("0 arguments.")
-    elif count == 1:
-        print("1 argument:")
-    else:
-        print(f"{count} arguments:")
-    for i, arg in enumerate(args.args):
-        print(f"{i + 1}: {arg}")
-
-if __name__ == "__main__":
-    main()
+if __name__ == '__main__':
+    num_args = len(sys.argv) - 1
+    print("{} argument{}{}".format(num_args, 's' if num_args != 1 else '', ':' if num_args else '.'))
+    for i in range(1, len(sys.argv)):
+        print("{}: {}".format(i, sys.argv[i]))
