@@ -1,11 +1,12 @@
 #!/usr/bin/python3
-from magic_calculation_102 import add, sub
 
-def magic_calculation(a, b):
-    if a < b:
-        c = add(a, b)
-        for i in range(4, 6):
-            c = add(c, i)
-        return c
-    else:
-        return sub(a, b)
+from add_0 import add
+
+def main():
+    a = 1
+    b = 2
+    result = add(a, b)
+    print("{:d} + {:d} = {:d}".format(a, b, result))
+
+if __name__ == "__main__":
+    main()
