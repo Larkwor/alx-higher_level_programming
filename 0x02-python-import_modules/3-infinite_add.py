@@ -1,10 +1,8 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
+
 import sys
 
-args = sys.argv[1:]
-sum = 0
-
-for arg in args:
-    sum += int(arg)
-
-print(sum)
+if __name__ == "__main__":
+    arguments = sys.argv[1:]
+    total = sum(map(int, arguments))
+    print(f"{total}")
